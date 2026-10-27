@@ -6,7 +6,7 @@ Repository: [flaeehm-cmyk/x500-autonomous-delivery-system](https://github.com/fl
 
 A **repository** is the project folder and its saved change history. The **README** is the landing page. A **commit** is a named saved change. An **issue** tracks a task or test result. A **branch** lets someone work separately; a **pull request** presents their change for review before merging it into the main version.
 
-The landing page focuses on the project, Mohammed's role, demonstrated results, and links to evidence. GitHub's [profile guide](https://docs.github.com/en/account-and-profile/tutorials/using-your-github-profile-to-enhance-your-resume) recommends a concise README, setup/testing instructions, useful project details, and pinned work.
+The landing page focuses on the project, Mohammed Flaeeh's role, demonstrated results, and links to evidence. GitHub's [profile guide](https://docs.github.com/en/account-and-profile/tutorials/using-your-github-profile-to-enhance-your-resume) recommends a concise README, setup/testing instructions, useful project details, and pinned work.
 
 ## Repository details
 
@@ -18,7 +18,9 @@ The landing page focuses on the project, Mohammed's role, demonstrated results, 
 | Default branch | `main` |
 | License | None selected; choose with the team later |
 
-Suggested About description: **Student UAV engineering project: X500 autonomous-flight validation, Jetson integration, and a supervised parcel-delivery system in development.**
+Suggested About description (266 characters; also suitable for LinkedIn):
+
+> Student-led autonomous drone delivery project using an X500 quadcopter, Pixhawk, and ArduPilot. Includes autonomous flight testing and Python analysis of flight data, with NVIDIA Jetson integration, payload handling, and energy-aware mission planning in development.
 
 Suggested topics: `ardupilot`, `uav`, `robotics`, `embedded-systems`, `power-electronics`, `jetson`, `flight-testing`, `autonomous-delivery`.
 

@@ -4,7 +4,7 @@
 
 **An independent student UAV project combining flight control, power electronics, embedded computing, and experimental validation.**
 
-Led by **Mohammed Flaeeh**, Electrical and Computer Engineering student at Saint Louis University, with a six-member engineering and computer science team.
+A six-member engineering and computer science team led by **Mohammed Flaeeh (Mohammed F)**, an Electrical and Computer Engineering student at Saint Louis University.
 
 We are developing a supervised autonomous delivery prototype that identifies a parcel, measures its mass, evaluates mission energy and reserve, and verifies controlled placement. The current foundation is an X500 flying programmed waypoint missions. Payload handling and energy-aware delivery are the next integration stages.
 
@@ -79,6 +79,19 @@ The original extraction used relative altitude above 2 m as its airborne heurist
 5. Progress through simulation, secured inert-load flight tests, and an integrated delivery demonstration.
 
 [Roadmap and acceptance evidence](docs/roadmap.md) · [Validation plan](docs/validation-plan.md)
+
+## Team
+
+The proposed workstreams below follow the project scope. See [team roles and affiliations](docs/team.md) for details and documented contributions.
+
+| Member | Workstream |
+| --- | --- |
+| Mohammed Flaeeh (Mohammed F) | Project lead; systems integration and flight validation |
+| Jad | Power electronics and custom power-module PCB |
+| Ahmad | Energy modeling and mission planning |
+| Alend | Weighing / dispatch station and instrumentation |
+| Yazan | Payload fixture, attachment interface, and structural testing |
+| Mohammed A | QR/order workflow, mission state machine, operator interface, and event logging |
 
 ## Repository guide
 
