@@ -14,11 +14,11 @@ The assignments below were proposed in the 17 October scope. They identify respo
 
 | Member | Workstream | Intended evidence |
 | --- | --- | --- |
-| Mohammed — ECE | Systems integration, requirements, flight configuration, flight validation, cross-team coordination | Configuration records, baseline tests, flight analysis, integration decisions |
-| Jad — ECE | Power electronics and custom power-module PCB | Power budget, schematic, PCB files, bench bring-up and load measurements |
-| Ahmad — CE, Washington University | Energy model and mission planning | Baseline model, feasibility decisions, held-out prediction results |
-| Alend — ECE | Weighing / dispatch station and instrumentation | Calibration data, parcel-presence detection, station demonstration |
-| Mechanical engineering member | Payload fixture, attachment interface, mass / center of gravity, structural testing | CAD, measured assembly mass, retention and supported-release tests |
-| Computer science member | QR/order workflow, mission state machine, operator interface, event logging | Runnable workflow, simulation tests, mission records |
+| Mohammed F — Electrical & Computer Engineering (SLU) | Systems integration, requirements, flight configuration, flight validation, cross-team coordination | Configuration records, baseline tests, flight analysis, integration decisions |
+| Jad — Electrical & Computer Engineering (SLU) | Power electronics and custom power-module PCB | Power budget, schematic, PCB files, bench bring-up and load measurements |
+| Ahmad — Computer Engineering (WashU) | Energy model and mission planning | Baseline model, feasibility decisions, held-out prediction results |
+| Alend — Computer Engineering (SLU) | Weighing / dispatch station and instrumentation | Calibration data, parcel-presence detection, station demonstration |
+| Yazan — Mechanical Engineering (SLU) | Payload fixture, attachment interface, mass / center of gravity, structural testing | CAD, measured assembly mass, retention and supported-release tests |
+| Mohammed A — Computer Science (SLU) | QR/order workflow, mission state machine, operator interface, event logging | Runnable workflow, simulation tests, mission records |
 
 Full public names and GitHub handles for all contributors can be added when supplied by the team. Each member should commit their own work from their own account and receive specific credit in the relevant document or pull request.
