@@ -1,0 +1,38 @@
+name: Test result
+description: Record a bench, simulation, or flight result with its limitations.
+title: "[Test] "
+body:
+  - type: dropdown
+    id: setting
+    attributes:
+      label: Test setting
+      options:
+        - Bench
+        - Simulation
+        - Flight
+        - Offline analysis
+    validations:
+      required: true
+  - type: textarea
+    id: setup
+    attributes:
+      label: Date, author, configuration, and procedure
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected outcome and acceptance rule
+    validations:
+      required: true
+  - type: textarea
+    id: measured
+    attributes:
+      label: Observed outcome and evidence
+      description: Include units, sample size, failures, interventions, and artifact links.
+    validations:
+      required: true
+  - type: textarea
+    id: limits
+    attributes:
+      label: Limitations and next action

@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "source_file": "flight_segment_summary_2026-10-10.csv",
+  "source_sha256": "a4191b2d50a72285ab1a8afecb2f6ad883061bdcf9acab01fcf77f2d8e2015c7",
+  "method": "Aggregate the supplied derived armed-interval CSV; no raw-log reprocessing.",
+  "summary": {
+    "armed_intervals": 30,
+    "source_logs": 4,
+    "dates": 3,
+    "intervals_with_inferred_airborne_time": 16,
+    "airborne_intervals_with_auto_in_mode_set": 7,
+    "summed_inferred_airborne_s": 1239.6,
+    "clipping_delta_in_intervals_with_airborne_time": 0,
+    "clipping_delta_in_other_intervals": 11,
+    "by_date": [
+      {
+        "date": "2026-09-18",
+        "source_logs": 2,
+        "armed_intervals": 10,
+        "intervals_with_inferred_airborne_time": 3,
+        "airborne_intervals_with_auto_in_mode_set": 0,
+        "summed_inferred_airborne_s": 284.4,
+        "max_vibration_across_armed_intervals_m_s2": 22.1,
+        "min_voltage_across_armed_intervals_v": 13.6,
+        "clipping_delta_across_armed_intervals": 0
+      },
+      {
+        "date": "2026-10-07",
+        "source_logs": 1,
+        "armed_intervals": 8,
+        "intervals_with_inferred_airborne_time": 5,
+        "airborne_intervals_with_auto_in_mode_set": 4,
+        "summed_inferred_airborne_s": 351.6,
+        "max_vibration_across_armed_intervals_m_s2": 27.2,
+        "min_voltage_across_armed_intervals_v": 14.24,
+        "clipping_delta_across_armed_intervals": 0
+      },
+      {
+        "date": "2026-10-09",
+        "source_logs": 1,
+        "armed_intervals": 12,
+        "intervals_with_inferred_airborne_time": 8,
+        "airborne_intervals_with_auto_in_mode_set": 3,
+        "summed_inferred_airborne_s": 603.6,
+        "max_vibration_across_armed_intervals_m_s2": 45.2,
+        "min_voltage_across_armed_intervals_v": 13.03,
+        "clipping_delta_across_armed_intervals": 11
+      }
+    ]
+  }
+}
