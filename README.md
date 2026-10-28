@@ -33,13 +33,13 @@ The next technical contribution is an **explainable mission-feasibility decision
 
 ## System at a glance
 
-The Pixhawk runs flight control and configured flight failsafes. The Jetson is intended to handle perception and mission decisions; the laptop provides operator approval and review.
+The Pixhawk runs flight control and configured flight failsafes. The Jetson is intended to read each package's QR/barcode label (payload dimensions, weight, and destination), plan the flight path to that destination, and handle mission decisions; the laptop provides operator approval and review.
 
 ```mermaid
 flowchart TD
     G["Ground station: Mission Planner"] --> F["Pixhawk 6C Mini: ArduCopter"]
     F --> A["X500 motors and ESCs"]
-    C["Camera and parcel intake: planned"] -.-> J["Jetson Orin Nano Super: bench bring-up"]
+    C["Camera reads package QR/barcode label: planned"] -.-> J["Jetson Orin Nano Super: bench bring-up"]
     J -. "MAVLink integration planned" .-> F
     J -.-> P["Payload interface: planned"]
 ```

@@ -55,3 +55,11 @@ A reinforced attachment interface and pull, shear, peel, alignment, and restart 
 Begin with a lookup or simple regression model, then evaluate additional complexity against held-out measurements. Include loaded outbound, placement, return, uncertainty, and reserve in the mission decision.
 
 **Consequence:** first establish valid current/voltage measurements and comparable test missions. Lower mean prediction error alone is insufficient if worst-case underprediction becomes worse.
+
+## ADR-007 — Carry payload information on the package label
+
+**Decision:** adopted 28 October 2026.
+
+Each package carries a QR code or barcode that stores its payload information: dimensions, weight, and destination. The Jetson camera reads the label, and the planner optimizes the flight path for the labelled destination. This replaces scanning an order identifier at the dispatch station and looking up a separate order record.
+
+**Consequence:** the label format (fields, units, version, integrity check) must be defined and tested. The labelled weight is cross-checked against the measured mass, the destination must resolve to an approved delivery site, and the planned path still requires operator approval.
