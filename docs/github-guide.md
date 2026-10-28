@@ -1,6 +1,6 @@
 # GitHub owner's guide
 
-Repository: [flaeehm-cmyk/x500-autonomous-delivery-system](https://github.com/flaeehm-cmyk/x500-autonomous-delivery-system)
+Repository: [x500-delivery/x500-autonomous-delivery-system](https://github.com/x500-delivery/x500-autonomous-delivery-system)
 
 ## What the main features mean
 
@@ -13,7 +13,7 @@ The landing page focuses on the project, Mohammed Flaeeh's role, demonstrated re
 | Setting | Value |
 | --- | --- |
 | Name | `x500-autonomous-delivery-system` |
-| Owner | `flaeehm-cmyk` |
+| Owner | `x500-delivery` organization |
 | Visibility | Public |
 | Default branch | `main` |
 | License | None selected; choose with the team later |
@@ -34,11 +34,23 @@ The commit history starts with repository setup. Earlier development is document
 - **Actions:** automated tests of the offline analysis utility. These checks do not test the aircraft.
 - **Commits:** what changed, who changed it, and when.
 
-No collaborator invitations have been sent. Add teammates using their confirmed GitHub handles when ready.
+Organization owners manage membership and repository access. Accept your organization invitation using your own GitHub account. The team uses working branches and reviewed pull requests; see [CONTRIBUTING.md](../CONTRIBUTING.md).
+
+## Organization ownership
+
+The repository was transferred to `x500-delivery` on 28 October 2026. Its commit history and contributor attribution remain intact. Mohammed Flaeeh remains the project lead and an organization owner; the [team page](team.md) records engineering responsibilities.
+
+Organization ownership gives administrative access. Repository Write access is sufficient for regular branch pushes and pull requests. GitHub App authorization is a separate setting; an owner must grant each approved app access to this repository under the organization.
+
+Existing clones can use the new address:
+
+```bash
+git remote set-url origin https://github.com/x500-delivery/x500-autonomous-delivery-system.git
+```
 
 ## Make a small documentation update
 
-Open the relevant Markdown file, choose the pencil/edit control, make the change, and use **Commit changes** with a concrete message such as **Record load-cell calibration results**. For a team review, create a branch and pull request rather than changing the main branch directly.
+Open the relevant Markdown file, choose the pencil/edit control, make the change, and use **Commit changes** with a concrete message such as **Record load-cell calibration results**. Choose **Create a new branch for this commit and start a pull request**. A code owner reviews the pull request before it is merged into `main`; the automated `summary` check must pass and review conversations must be resolved.
 
 A useful update includes the date, contributor, configuration, measured result, evidence path, and unresolved issue. Use the [test record template](templates/test-record.md).
 
@@ -47,7 +59,7 @@ A useful update includes the date, contributor, configuration, measured result, 
 With Git and Python installed, clone and test the repository:
 
 ```bash
-git clone https://github.com/flaeehm-cmyk/x500-autonomous-delivery-system.git
+git clone https://github.com/x500-delivery/x500-autonomous-delivery-system.git
 cd x500-autonomous-delivery-system
 python -m unittest discover -s tests -v
 python analysis/summarize_segments.py --check
