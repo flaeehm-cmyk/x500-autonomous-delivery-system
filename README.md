@@ -8,7 +8,7 @@ A six-member engineering and computer science team led by **Mohammed Flaeeh (Moh
 
 We are developing a supervised autonomous delivery prototype that identifies a parcel, measures its mass, evaluates mission energy and reserve, and verifies controlled placement. The current foundation is an X500 flying programmed waypoint missions. Payload handling and energy-aware delivery are the next integration stages.
 
-**Status: active development · Updated 26 October 2026**
+**Status: active development · Updated 28 October 2026**
 
 [Engineering results](docs/case-studies/flight-validation.md) · [System architecture](docs/architecture.md) · [Hardware](hardware/README.md) · [Roadmap](docs/roadmap.md) · [Team](docs/team.md)
 
@@ -82,16 +82,16 @@ The original extraction used relative altitude above 2 m as its airborne heurist
 
 ## Team
 
-The proposed workstreams below follow the project scope. See [team roles and affiliations](docs/team.md) for details and documented contributions.
+The workstreams below follow the project scope, with assignments updated on 28 October 2026. See [team roles and affiliations](docs/team.md) for details and documented contributions.
 
 | Member | Workstream |
 | --- | --- |
-| Mohammed Flaeeh (Mohammed F) | Project lead; systems integration and flight validation |
-| Jad | Power electronics and custom power-module PCB |
-| Ahmad | Energy modeling and mission planning |
+| Mohammed Flaeeh (Mohammed F) | Project lead; systems integration, flight validation, and energy modeling (with Jad) |
+| Jad | Power electronics, custom power-module PCB, and energy modeling (with Mohammed F) |
+| Ahmad | Package QR/barcode labels, Jetson camera label reading, and destination flight-path planning (with Mohammed A) |
 | Alend | Weighing / dispatch station and instrumentation |
 | Yazan | Payload fixture, attachment interface, and structural testing |
-| Mohammed A | QR/order workflow, mission state machine, operator interface, and event logging |
+| Mohammed A | Package QR/barcode labels and destination flight-path planning (with Ahmad); mission state machine, operator interface, and event logging |
 
 ## Repository guide
 
