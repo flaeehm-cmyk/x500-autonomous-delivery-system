@@ -6,10 +6,26 @@ Make each update a small, reviewable piece of engineering work.
 2. Create a branch with a descriptive name, such as `docs/power-budget` or `analysis/current-calibration`.
 3. Add the actual artifact and its explanation: what changed, why, configuration, result, and limits.
 4. Run the relevant check. For the included Python utility: `python -m unittest discover -s tests -v`.
-5. Open a pull request using the supplied template. Request review from the subsystem owner or project lead.
-6. Merge after review and update status only when the linked evidence supports it.
+5. Open a pull request into `main` using the supplied template. GitHub requests reviewers from [CODEOWNERS](.github/CODEOWNERS); include the relevant subsystem contributor in the review.
+6. Merge after at least one approving code-owner review, a passing `summary` check, and resolution of review conversations. Update status only when the linked evidence supports it.
 
 Use your own GitHub account for your work. Credit collaborators in the relevant document or pull request.
+
+## Repository access and branches
+
+The repository belongs to the [x500-delivery organization](https://github.com/x500-delivery). Use your own account with repository Write access (or a higher role) to push a working branch. Organization owners manage membership and repository settings.
+
+Start from an up-to-date `main` and use a separate branch for each change:
+
+```bash
+git switch main
+git pull --ff-only
+git switch -c docs/describe-your-change
+# Edit, review, and commit the intended files.
+git push -u origin docs/describe-your-change
+```
+
+Open a pull request from that branch into `main`. Changes to `main` follow the review and check requirements above, including changes made by administrators. The `summary` check validates the offline analysis utility and its reproducible reports; it does not validate aircraft hardware or flight behavior.
 
 ## Results and records
 
