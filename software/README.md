@@ -8,7 +8,7 @@
 
 | Component | Owner / proposed lead | Responsibility |
 | --- | --- | --- |
-| Package labels and intake | Mohammed A | Generate QR labels, define versioned package records and validate decoded data |
+| QR-code software and package intake | Mohammed A + Ahmad | Generate/read QR labels, define versioned package records and validate decoded data |
 | Jetson perception and runtime | Ahmad | Camera acquisition, label decoding and reproducible onboard software environment |
 | Companion autonomy integration | Ahmad, proposed | Integrate route evaluation, mission state handling and the Pixhawk interface |
 | Energy estimator | Mohammed F + Jad | Predict mission Wh and uncertainty from calibrated measurements |
