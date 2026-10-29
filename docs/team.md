@@ -1,24 +1,37 @@
-# Team and ownership
+# Team and subsystem ownership
 
-**Project lead: Mohammed Flaeeh (Mohammed F)** — Electrical and Computer Engineering, Saint Louis University.
+Assignments confirmed by Mohammed F on **28 October 2026**. Proposed additions are marked below.
 
-The six-member team spans electrical/computer engineering, mechanical engineering, and computer science, with members at Saint Louis University (SLU) and Washington University in St. Louis (WashU). This is an independent student project; university affiliations identify participants.
+**Mohammed Flaeeh (Mohammed F)** leads the project. The team includes students at Saint Louis University and Washington University in St. Louis; this is an independent student project.
 
-## Documented lead work
-
-Project records attribute the build/integration effort, Mission Planner mission work, battery-voltage comparison, flight-log troubleshooting, Jetson/SSD setup, and scope coordination to Mohammed Flaeeh (Mohammed F). See the [engineering log](engineering-log.md) and [evidence register](evidence.md) for their different evidence levels.
-
-## Workstream ownership
-
-The assignments below were proposed in the 17 October scope and updated on 28 October 2026: the energy model moved to Jad and Mohammed F, and Ahmad joined Mohammed A on package labels and destination flight-path planning. They identify responsibility and intended deliverables; they do not claim that those deliverables are complete.
-
-| Member | Workstream | Intended evidence |
+| Member | Ownership | Next concrete deliverable |
 | --- | --- | --- |
-| Mohammed F — Electrical & Computer Engineering (SLU) | Systems integration, requirements, flight configuration, flight validation, cross-team coordination; energy model (with Jad) | Configuration records, baseline tests, flight analysis, integration decisions; baseline energy model and held-out prediction results |
-| Jad — Electrical & Computer Engineering (SLU) | Power electronics and custom power-module PCB; energy model (with Mohammed F) | Power budget, schematic, PCB files, bench bring-up and load measurements; baseline energy model and held-out prediction results |
-| Ahmad — Computer Engineering (WashU) | Package QR/barcode labels carrying payload dimensions, weight, and destination; Jetson camera label reading; destination flight-path planning (with Mohammed A) | Label format, camera read results, route-planning examples and tests |
-| Alend — Computer Engineering (SLU) | Weighing / dispatch station and instrumentation | Calibration data, parcel-presence detection, station demonstration |
-| Yazan — Mechanical Engineering (SLU) | Payload fixture, attachment interface, mass / center of gravity, structural testing | CAD, measured assembly mass, retention and supported-release tests |
-| Mohammed A — Computer Science (SLU) | Package QR/barcode labels and destination flight-path planning (with Ahmad); mission state machine, operator interface, event logging | Label format, runnable workflow, simulation tests, mission records |
+| **Mohammed F** — ECE, SLU | Overall system integration, requirements, flight validation, administrative work and coordination; **energy model with Jad** | Current aircraft configuration and mass record; calibrated energy-data collection plan with Jad |
+| **Jad** — ECE, SLU | **Complete power-distribution PCB**, intended to replace the PM02 power module, original PDB and temporary custom Jetson supply; **energy model with Mohammed F** | Power-tree and rail/load requirements, sensing plan, schematic and staged bench-test plan |
+| **Yazan** — ME, SLU | All mechanical work: payload mechanism, custom parts, fabrication, mounting and structural improvements; assists with flight-controller settings and physical constraints | Payload/mount CAD, measured mass and center of gravity, retention and release test plan |
+| **Ahmad** — CompE, WashU | Jetson setup and computing, computer vision, machine learning and reinforcement-learning exploration | Reproducible Jetson environment and camera pipeline; proposed companion-integration scope below |
+| **Mohammed A** — CS, SLU | QR-label generation, package-data format and intake software; integration of decoded package records with the Jetson workflow | Versioned label specification, generator and validation examples |
+| **Alend** — CompE, SLU | **Not assigned yet** | Suggested starter contribution below, subject to team agreement |
 
-The names and initials above follow the team's current public roster. GitHub profile links can be added when members provide their handles. Each member should commit their own work from their own account and receive specific credit in the relevant document or pull request.
+Ownership identifies responsibility, not completion. Finished work should link to code, CAD, measurements or test records under its actual contributors.
+
+## Ahmad: proposed subsystem
+
+**Companion autonomy and perception** gives Ahmad a defined integration role: deploy the camera/label-reading pipeline on the Jetson, connect it to Mohammed A's package records, integrate the energy model and route evaluator, and manage the Jetson–Pixhawk mission interface.
+
+Start with a reproducible camera demo and a simulated mission interface. Later CV/ML work should address a measured problem, such as unreliable label/placement-marker detection. Compare it with a simple baseline. Reinforcement learning remains an optional simulation research direction, outside the initial delivery demonstration.
+
+## Shared boundaries
+
+- **Mohammed A → Ahmad:** package schema, generated labels and validation rules → camera decoding and onboard execution.
+- **Mohammed F + Jad → Ahmad:** versioned energy estimator, calibrated input requirements and prediction limits → route feasibility and planning.
+- **Yazan → Mohammed F + Ahmad:** physical payload/clearance limits and attachment/release feedback → aircraft limits and mission states.
+- **Mohammed F:** resolves cross-subsystem changes and coordinates integration acceptance.
+
+## Alend: suggested starter task
+
+A **bench weighing and package-validation station** is a useful bounded contribution: read a load cell, calibrate against reference masses, report mass with a timestamp, and detect disagreement with the QR label. Begin with a laptop test and then connect it to Mohammed A's validator.
+
+This is a recommendation, not an assignment. If the team chooses it, define a small first issue and agree who will mentor/review it.
+
+Use one owner per issue, list collaborators, and commit from each contributor's own account. See [workflow](../CONTRIBUTING.md).

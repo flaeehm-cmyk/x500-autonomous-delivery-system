@@ -1,16 +1,14 @@
-# Documentation map
+# Documentation
 
-| Start here for… | Read |
+| Purpose | Page |
 | --- | --- |
-| A concise overview | [Project README](../README.md) |
-| Results and limitations | [Flight-validation case study](case-studies/flight-validation.md) |
-| Electrical and companion-computer work | [Power and compute case study](case-studies/power-and-compute.md) |
-| System boundaries and power paths | [Architecture](architecture.md) |
-| Why the design changed | [Decision record](decisions.md) |
-| The dated project history | [Engineering log](engineering-log.md) |
-| Claim-to-source traceability | [Evidence register](evidence.md) |
-| Upcoming integration work | [Roadmap](roadmap.md) and [validation plan](validation-plan.md) |
-| Responsibilities | [Team](team.md) |
-| GitHub setup and maintenance | [Owner's guide](github-guide.md) |
-
-Status language: **reviewed record** means an available record supports the claim; **reported** means a dated project-lead update; **planned** means a proposed design or test, not a demonstrated capability. A reviewed summary is not equivalent to independently reprocessing the raw data.
+| Project overview and current results | [README](../README.md) |
+| Responsibilities and proposed additions | [Team](team.md) |
+| System boundaries and delivery sequence | [Architecture](architecture.md) |
+| QR fields, validation and planning | [Package workflow](package-workflow.md) |
+| Energy prediction explained | [Energy model](energy-model.md) |
+| Next work and test evidence | [Roadmap](roadmap.md) · [Validation](validation-plan.md) |
+| Measured/reported progress | [Flight case study](case-studies/flight-validation.md) · [Power case study](case-studies/power-and-compute.md) |
+| Important past choices | [Decisions](decisions.md) · [History](engineering-log.md) |
+| Sources and limitations | [Evidence register](evidence.md) |
+| Repository layout and upkeep | [GitHub guide](github-guide.md) · [Contribution workflow](../CONTRIBUTING.md) |

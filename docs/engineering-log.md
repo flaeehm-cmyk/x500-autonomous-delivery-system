@@ -1,19 +1,21 @@
-# Engineering log
+# Project history
 
-This is a retrospective project record assembled on 26 October 2026. Dates below describe work or observations; they do not imply commits were made on those dates.
+A concise retrospective of work that shaped the current system. Earlier activity predates this repository's commits; reported progress is distinguished from included artifacts in the [evidence register](evidence.md).
 
-| Period | Work and observations | Status / next step |
+| Period | Work or decision | Result / lesson |
 | --- | --- | --- |
-| June–August 2026 | Mark4 7-inch development platform; propulsion and Pixhawk integration; receiver/GPS wiring and pre-arm troubleshooting. Project notes record damage to GPS/telemetry connections after a July crash. | Historical project-lead account. Original build media and repair evidence are not included here. |
-| August–September 2026 | Moved the main integration effort to the Holybro X500 V2 ARF. Established PM02/PDB/flight-controller power arrangement. Selected the Jetson Orin Nano Super after considering a Pi 5 plus AI accelerator. | Hardware/design history; no quantified platform-comparison result. |
-| 18 September 2026 | Reviewed summary contains short armed sessions and several inferred airborne AltHold/RTL intervals. | Included CSV. Mode changes on the ground are not counted as flight. |
-| 5–9 October 2026 | Investigated AltHold drift and Loiter shaking. Subsequent records document airborne AUTO waypoint sequences. | Flight foundation demonstrated; vibration investigation remains open. |
-| 10 October 2026 | Reviewed five log files, including one unarmed placeholder. Four armed source files contribute the 30-row summary. Identified battery measurement, vibration, mission termination, and failsafe-verification questions. | Historical review; its proposed parameters are not a current approved configuration. |
-| 17 October 2026 | Adopted autonomous parcel-delivery scope revision 1.1 and proposed six workstreams. | Scope established; proposed ownership is not evidence of completed subsystem work. |
-| 19 October 2026 | Lead reported two mission flights using the same battery across a disconnect/reconnect. Voltage comparison improved from 16.405 V in Mission Planner versus 16.68 V on a meter to 16.68 V on both. Mechanical fasteners were inspected/tightened. | Single-point voltage agreement reported. Revalidate current measurements, configuration, and vibration on new logs. |
-| October 2026, through 25 October | Jetson / Samsung 1 TB NVMe setup and storage checks; three subsequent successful boots reported. Camera and auxiliary-regulator options evaluated. | Bench progress. Final OS version, camera choice, and flight power integration are not verified in this snapshot. |
-| 26 October 2026 | Prepared this repository, curated the evidence register, and added an offline script for the historical summary. | Documentation/tooling work. This does not establish new flight or delivery capability. |
+| Early development, before the X500 | Built and worked with the Mark4 7-inch platform as the intended smart drone | Available space constrained the planned computing/payload integration |
+| August–September 2026 | Moved primary development to the X500; established the PM02/PDB/Pixhawk power arrangement; selected the Jetson | A larger integration platform became the project baseline |
+| Earlier concept, before 17 October | Explored an autonomous tracking / multi-UAV scope | Superseded concept; no completed tracking demonstration is documented |
+| September–October 2026 | Flight testing, AltHold/Loiter troubleshooting and AUTO waypoint missions | The included CSV records 30 armed intervals; the October review documents airborne AUTO sequences |
+| 10 October 2026 | Reviewed flight logs and produced the historical segment summary | Identified measurement, vibration and mission-termination questions; current/energy data were insufficient for an energy model |
+| 17 October 2026 | Changed the objective to supervised autonomous parcel delivery | Package intake, energy feasibility and controlled placement became the integration goal |
+| 19 October 2026 | Adjusted voltage measurement and inspected/tightened mechanical fasteners | Reported Mission Planner/multimeter agreement at 16.68 V; current calibration and repeat flight evidence remain open |
+| October 2026, through 25 October | Jetson / NVMe setup and restart checks | Three successful subsequent boots reported; aircraft integration pending |
+| 26–28 October 2026 | Added reproducible summary analysis, transferred the repository to the team organization and clarified subsystem ownership | Shared development workflow; energy model assigned to Mohammed F and Jad |
 
-## Next update format
+## Keep future entries selective
 
-Each new entry should name the date, author, configuration, test or change, result, evidence path, unresolved issue, and next action. Link the related issue or pull request. Preserve unsuccessful tests when they explain a decision.
+Add an entry when a test closes a question, a failure changes the design, or a subsystem reaches a milestone. Include the date, contributor, result and link to the issue/PR or test record. Keep detailed session notes with that evidence.
+
+[Design rationale](decisions.md) · [Current roadmap](roadmap.md)

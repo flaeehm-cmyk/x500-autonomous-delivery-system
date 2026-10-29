@@ -1,78 +1,44 @@
-# GitHub owner's guide
+# Repository organization and upkeep
 
-Repository: [x500-delivery/x500-autonomous-delivery-system](https://github.com/x500-delivery/x500-autonomous-delivery-system)
+## Keep one repository for now
 
-## What the main features mean
+The PCB, mechanics, package data, energy model and Jetson software share interfaces and a test plan. Keeping them together lets an integration change be reviewed in one pull request.
 
-A **repository** is the project folder and its saved change history. The **README** is the landing page. A **commit** is a named saved change. An **issue** tracks a task or test result. A **branch** lets someone work separately; a **pull request** presents their change for review before merging it into the main version.
-
-The landing page focuses on the project, Mohammed Flaeeh's role, demonstrated results, and links to evidence. GitHub's [profile guide](https://docs.github.com/en/account-and-profile/tutorials/using-your-github-profile-to-enhance-your-resume) recommends a concise README, setup/testing instructions, useful project details, and pinned work.
-
-## Repository details
-
-| Setting | Value |
+| Location | Purpose |
 | --- | --- |
-| Name | `x500-autonomous-delivery-system` |
-| Owner | `x500-delivery` organization |
-| Visibility | Public |
-| Default branch | `main` |
-| License | None selected; choose with the team later |
+| Root README | Short overview, demonstrated progress and navigation |
+| `docs/` | Shared architecture, interfaces, ownership, decisions and milestones |
+| `hardware/` | PCB/CAD sources, readable exports, BOMs and assembly tests |
+| `software/` | Package-label and Jetson application code |
+| `analysis/` | Offline analysis, energy-model experiments and generated reports |
+| `data/` | Small reviewed datasets with provenance and units |
+| `tests/` | Automated software checks |
 
-Suggested About description (266 characters; also suitable for LinkedIn):
+Add subsystem folders with their first real artifact: `hardware/power/`, `hardware/mechanical/`, `software/package-labels/`, `software/companion/` and `analysis/energy-model/`. Avoid empty scaffolding and copies of the same document in several places.
 
-> Student-led autonomous drone delivery project using an X500 quadcopter, Pixhawk, and ArduPilot. Includes autonomous flight testing and Python analysis of flight data, with NVIDIA Jetson integration, payload handling, and energy-aware mission planning in development.
+A separate repository becomes useful when a subsystem has a stable interface, its own releases/dependencies or a genuinely different access/storage requirement. Jad's board could eventually justify a dedicated hardware repository. If split, keep this repository as the system overview and record the exact compatible subsystem revision. One repository per teammate is unnecessary.
 
-Suggested topics: `ardupilot`, `uav`, `robotics`, `embedded-systems`, `power-electronics`, `jetson`, `flight-testing`, `autonomous-delivery`.
+## Small weekly routine
 
-The commit history starts with repository setup. Earlier development is documented with its actual dates in the engineering log; it is not represented by fabricated historical commits.
+1. Each member updates their active issue with progress, an evidence link, a blocker and the next action.
+2. Mohammed F checks shared interfaces and priorities with the relevant owners.
+3. Review small pull requests and close completed issues.
+4. Update the README only for a demonstrated capability change; update the roadmap for milestone changes.
 
-## Find your way around
+Use **Backlog → In progress → Review → Done** if a GitHub Project board becomes useful. An issue list is sufficient initially. Do not maintain duplicate task lists in a board, roadmap and weekly document.
 
-- **Code:** files, folders, and the rendered README.
-- **Issues:** engineering tasks and test records using the included forms.
-- **Pull requests:** proposed changes and teammate reviews.
-- **Actions:** automated tests of the offline analysis utility. These checks do not test the aircraft.
-- **Commits:** what changed, who changed it, and when.
+## Making a change
 
-Organization owners manage membership and repository access. Accept your organization invitation using your own GitHub account. The team uses working branches and reviewed pull requests; see [CONTRIBUTING.md](../CONTRIBUTING.md).
+A **branch** is a working copy of the project history. A **commit** saves a change. A **pull request (PR)** asks teammates to review it before it joins `main`.
 
-## Organization ownership
+In the browser: edit a file → **Commit changes** → create a new branch and pull request. Locally, follow [CONTRIBUTING.md](../CONTRIBUTING.md). The protected `main` branch requires a code-owner approval, the `summary` check and resolved review conversations, including for administrators.
 
-The repository was transferred to `x500-delivery` on 28 October 2026. Its commit history and contributor attribution remain intact. Mohammed Flaeeh remains the project lead and an organization owner; the [team page](team.md) records engineering responsibilities.
+Write access lets a teammate push working branches. Organization ownership manages membership/settings. GitHub Apps need separate authorization for the organization.
 
-Organization ownership gives administrative access. Repository Write access is sufficient for regular branch pushes and pull requests. GitHub App authorization is a separate setting; an owner must grant each approved app access to this repository under the organization.
+## Preserve useful history
 
-Existing clones can use the new address:
+Keep decisions that explain a meaningful constraint, tradeoff, failure or scope change. Mark4 → X500 and tracking → delivery belong in the history. Routine shopping, every chat and abandoned ideas without a consequence do not need a public narrative.
 
-```bash
-git remote set-url origin https://github.com/x500-delivery/x500-autonomous-delivery-system.git
-```
+Keep earlier work in dated retrospective entries; do not recreate old commit dates. Put test detail beside its artifact and link it from the history. Keep source CAD/PCB files plus lightweight review exports; use an appropriate large-file/release workflow for bulky media or datasets.
 
-## Make a small documentation update
-
-Open the relevant Markdown file, choose the pencil/edit control, make the change, and use **Commit changes** with a concrete message such as **Record load-cell calibration results**. Choose **Create a new branch for this commit and start a pull request**. A code owner reviews the pull request before it is merged into `main`; the automated `summary` check must pass and review conversations must be resolved.
-
-A useful update includes the date, contributor, configuration, measured result, evidence path, and unresolved issue. Use the [test record template](templates/test-record.md).
-
-## Work with a local copy
-
-With Git and Python installed, clone and test the repository:
-
-```bash
-git clone https://github.com/x500-delivery/x500-autonomous-delivery-system.git
-cd x500-autonomous-delivery-system
-python -m unittest discover -s tests -v
-python analysis/summarize_segments.py --check
-```
-
-On Windows, use `py -3` instead of `python` if needed. GitHub Desktop is an alternative to command-line Git for syncing and reviewing changes.
-
-## Weekly maintenance
-
-- Add the actual new code, CAD, schematic, measurement, or test record.
-- Update project status only when the linked evidence supports it.
-- Keep planned work and unresolved questions in Issues.
-- Add a clear real-aircraft photograph and a concise demonstration clip when available.
-- Review files for private locations, identifiers, and credentials before committing them.
-
-Pin the repository on your GitHub profile and use its main URL on your résumé. Keep autonomous parcel delivery marked as in development until an integrated demonstration is documented.
+[Repository](https://github.com/x500-delivery/x500-autonomous-delivery-system) · [GitHub's project-management guidance](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/best-practices-for-projects)
