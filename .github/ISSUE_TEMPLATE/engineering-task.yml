@@ -1,26 +1,42 @@
 name: Engineering task
-description: Define a subsystem change and the evidence needed to complete it.
+description: A small deliverable with an owner and completion evidence.
 title: "[Task] "
 body:
-  - type: textarea
-    id: problem
+  - type: dropdown
+    id: subsystem
     attributes:
-      label: Problem and intended outcome
-      description: Describe the concrete trigger, affected subsystem, and desired result.
+      label: Subsystem
+      options:
+        - System integration
+        - Power PCB
+        - Mechanical / payload
+        - Jetson / perception
+        - Package labels
+        - Energy model
+        - Documentation / tooling
     validations:
       required: true
   - type: input
     id: owner
     attributes:
-      label: Proposed owner
+      label: Owner and collaborators
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Deliverable
+      description: What concrete problem does this change solve?
+    validations:
+      required: true
   - type: textarea
     id: dependencies
     attributes:
-      label: Dependencies and current configuration
+      label: Dependencies or blockers
   - type: textarea
     id: evidence
     attributes:
-      label: Completion evidence
-      description: Define a measurement, test, or working artifact that will close this issue.
+      label: Done when
+      description: Name the artifact, measurement or test that closes this issue.
     validations:
       required: true

@@ -1,36 +1,29 @@
 # Development roadmap
 
-This roadmap follows the 17 October scope. Dates are not promised; each milestone advances on evidence. Numerical targets below and in the validation plan remain proposed.
+Current responsibilities are in [team ownership](team.md). Subsystem development can proceed in parallel; integration advances when the preceding evidence is available.
 
-| Milestone | Deliverables | Evidence required to close | Current status |
+## Next deliverables
+
+| Priority | Deliverable | Owner | Done when |
 | --- | --- | --- | --- |
-| M0 — Flight foundation | X500 configuration, waypoint-flight record, initial log review | Traceable flight results | AUTO foundation documented; baseline cleanup remains open |
-| M1 — Reliable baseline | Mass/power budget, calibrated battery measurements, mechanical/vibration review, configuration-specific failsafe tests | Repeatable unloaded results and reviewed limits | In progress; single-point voltage agreement reported |
-| M2 — Companion integration | Protected power branch, mounted compute assembly, MAVLink interface | Bench rail/load/reset tests and verified communications | Jetson bench bring-up reported; aircraft integration planned |
-| M3 — Dispatch and planning | QR/order workflow, measured mass, baseline energy model, operator decision | Runnable software dry run and rejection tests | Planned |
-| M4 — Payload qualification | Fixture, retention mechanism, support/attachment sensing, controlled release | Load cases, restart/power-loss behavior, repeated bench cycles | Planned |
-| M5 — Integrated prototype | Simulation, secured inert-load flights, supported placement, return/report | Tested operating envelope and repeatable delivery records | Planned |
+| 1 | Aircraft and measurement baseline | Mohammed F + Jad; Yazan assists with mechanical/configuration work | Current firmware/parameter export, installed mass, voltage/current checks and reviewed baseline flight record are linked |
+| 1 | Power architecture and PCB requirements | Jad | Temporary supply and future PCB have separate power trees, rail/load budgets, sensing coverage and bench-test plans |
+| 1 | Payload and mounting design | Yazan | CAD, mass/center-of-gravity estimate and a retention/release test plan support the chosen prototype |
+| 2 | Package QR specification and generator | Mohammed A + Ahmad | Valid labels and defined rejection cases can be generated and parsed reproducibly |
+| 2 | Jetson camera and mission-interface demo | Ahmad; companion-integration role proposed | Recorded software environment, camera decoding demo and simulated mission/telemetry interface work together |
+| 2 | Baseline energy estimator | Mohammed F + Jad | Calibrated dataset, reproducible predictions and errors on held-out flights are published |
 
-## Ready-to-open engineering issues
+Alend's assignment is open. A bench weighing/validation station is the proposed starter contribution, subject to agreement.
 
-Use the engineering-task issue template and assign the owner after team agreement.
+## Integration sequence
 
-| Priority | Issue title | Completion evidence |
-| --- | --- | --- |
-| 1 | Capture the current aircraft configuration and baseline mass | Dated parameter export, firmware version, wiring record, complete mass table |
-| 1 | Validate battery current and voltage measurements | Instrument comparisons, test conditions, scale/offset settings, uncertainty |
-| 1 | Reassess vibration after mechanical inspection | Shareable log extraction and matched maneuver comparison |
-| 1 | Verify flight failsafes for the current configuration | Simulation/bench records and exact tested settings |
-| 2 | Qualify the Jetson auxiliary power branch | Schematic, protection/connector rationale, startup and load-step measurements |
-| 2 | Record Jetson software and storage baseline | Installed versions, SMART report, storage verification output, restart log |
-| 2 | Verify the Jetson–Pixhawk MAVLink interface | Connection details, acknowledgments, timestamps, stale-data and restart cases |
-| 3 | Demonstrate dispatch workflow with simulated aircraft I/O | Scan, weigh, validate, propose, approve, and reject-case records |
-| 3 | Compare payload retention mechanisms | Assembled mass, power, retention tests, supported release, fault behavior |
-| 4 | Validate the mission-energy model on held-out flights | Dataset split, errors, worst underprediction, reserve method |
-| 4 | Record the first integrated delivery demonstration | Full mission record, placement result, operator interventions, final energy |
+1. **Software dry run:** package input → validation → candidate-route/energy evaluation → operator decision, with simulated aircraft I/O.
+2. **Bench integration:** qualify compute power, communications, physical payload sensing and release behavior.
+3. **Controlled flight integration:** use secured inert loads and a reviewed configuration/test plan.
+4. **Delivery demonstration:** record package, route, predicted/measured energy, placement/release outcome and operator interventions.
 
-## Portfolio release evidence
+An implementation or flight result closes a milestone; a document describing the intended behavior does not. Record acceptance criteria before testing using the [validation plan](validation-plan.md).
 
-The next substantial release should add a real aircraft photograph, a concise demonstration clip, reviewed configuration records, actual team code, CAD/PCB artifacts as they become available, and measured outcomes. Show one rejected mission or a controlled simulated fault when the relevant subsystem works.
+## Keep the plan current
 
-No code, CAD, PCB, delivery result, or flight video is currently claimed for an unimplemented workstream.
+Use GitHub Issues for active tasks and blockers. Each issue needs one owner, collaborators if relevant, and an observable completion criterion. Update this page only when priorities or milestones change; put weekly details and evidence in the issues.

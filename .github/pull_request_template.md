@@ -1,15 +1,11 @@
-## Problem and resulting behavior
+## Change
 
-Explain what prompted the change and what now works differently.
-
-## Evidence
-
-Link the test, measurement, configuration, screenshot, or derived result.
+What changed and why? Link the issue and identify the affected subsystem.
 
 ## Validation
 
-State what was checked, under which conditions, and any limitations.
+What was tested or reviewed? Link the artifact/result and state any remaining limits.
 
-## Status and credit
+## Credit and status
 
-Identify contributors and whether this is documentation, simulated behavior, bench work, or a flight result.
+Who contributed? Is this a plan, software result, bench result or flight result?

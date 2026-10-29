@@ -1,57 +1,55 @@
-# Engineering decision record
+# Design decisions
 
-This record distinguishes decisions made from options still being evaluated. Historical rationale is reconstructed from project notes; it is not a quantitative trade study unless measurements are attached.
+Record choices that changed the architecture, cost, risk or test plan. Keep routine purchases and troubleshooting in issues or test records.
 
-## ADR-001 — Use the X500 as the primary integration platform
+## ADR-001 — Move primary development from Mark4 to X500
 
-**Decision:** selected, August–September 2026.
+**Adopted; historical rationale confirmed 28 October 2026.**
 
-The earlier Mark4 7-inch build established experience with propulsion, flight-controller wiring, receiver/GPS integration, and troubleshooting. Its integration constraints led the project toward the Holybro X500 V2 ARF for the companion-computer and payload program.
+The Mark4 7-inch FPV platform was initially intended to be the smart aircraft. The team found that its available integration space was too limited for the planned computing and payload work, so the X500 became the main development platform.
 
-The X500 became the primary flight-test platform. The Mark4 remains a possible later research vehicle; the delivery demonstration does not depend on a second aircraft.
+This is a packaging/integration decision. No controlled Mark4-versus-X500 performance comparison is claimed.
 
-**Consequence:** prioritize one validated aircraft and carry forward the earlier build lessons. No measured Mark4/X500 endurance or payload comparison is claimed.
+## ADR-002 — Use the Jetson Orin Nano Super
 
-## ADR-002 — Select the Jetson Orin Nano Super
+**Adopted.**
 
-**Decision:** selected; bench setup subsequently reported.
+Selected for the planned onboard perception and computing work after considering a Raspberry Pi 5 with an AI accelerator. The decision creates power, cooling, mounting and software-integration requirements. Workload performance and airborne power use still need measurement.
 
-The project considered a Raspberry Pi 5 with an AI accelerator before selecting the Jetson for its intended perception and onboard-computing work. This records a project choice, not a measured performance win.
+## ADR-003 — Change from tracking to parcel delivery
 
-**Consequence:** the system must account for the development board, SSD, cooling, camera, mounting, and conversion losses in its mass and power budget. The final airborne compute configuration remains unqualified.
+**Delivery scope adopted 17 October 2026.**
 
-**Evidence still needed:** representative workload latency, total input power, startup behavior, thermal response, and the flight-time effect with the actual installation.
+The earlier concept centered on tracking, including a possible second aircraft. The current objective is a supervised, single-parcel delivery workflow with package identification, energy-based feasibility and controlled placement.
 
-## ADR-003 — Start with supervised parcel delivery at fixed sites
+Tracking belongs in the project's design history. It is not a current milestone or a demonstrated capability in this repository. The first delivery version uses manual loading and approved sites/routes.
 
-**Decision:** adopted in the 17 October scope, revision 1.1.
+## ADR-004 — Develop the full power PCB alongside temporary integration
 
-The initial concept expanded from tracking toward parcel delivery. The first demonstration was narrowed to one parcel, manual loading, an approved route, a prepared delivery area, supported placement or landing, and operator oversight.
+**Current direction confirmed 28 October 2026.**
 
-**Consequence:** QR intake, measured mass, explainable mission feasibility, and release confirmation have priority. Autonomous airborne pickup, a full multi-UAV system, and advanced ML are deferred.
+Retain the established PM02/PDB flight-power path while developing the temporary Jetson supply. Jad's PCB is intended to replace those assemblies with a complete power-distribution and sensing solution after bench qualification.
 
-## ADR-004 — Keep the established flight power path
+Record the two configurations separately so measurements and the energy model remain traceable.
 
-**Decision:** retained; auxiliary branch design remains open.
+## ADR-005 — Test payload mechanisms before selecting one
 
-Use the existing battery → PM02 V3 → original PDB path, with the Pixhawk supplied by the PM02. Qualify a separate protected regulator branch for the Jetson while the custom power module develops.
+**Open.**
 
-**Consequence:** a companion-computer prototype need not wait for the full custom board. The branch must still be measured and tested with the actual load.
+Compare EPM, continuously powered electromagnet and mechanical-latch options using assembled mass, retention under representative loads, power-loss behavior and confirmed release. Yazan owns the mechanical evaluation. No mechanism or payload rating is qualified yet.
 
-## ADR-005 — Evaluate payload retention before selecting a gripper
+## ADR-006 — Begin with a measured energy baseline
 
-**Decision:** open.
+**Development approach; owners Mohammed F and Jad.**
 
-The concept began with a continuously energized electromagnet. The scope now compares an electropermanent magnet and a mechanical latch against total mass, power demand, retention during loss of auxiliary power, packaging strength, and verified release.
+Use calibrated measurements and a lookup table or small regression before evaluating ML. Include delivery, return/landing, uncertainty and reserve. Validate on whole flights excluded from fitting, including worst underprediction.
 
-A reinforced attachment interface and pull, shear, peel, alignment, and restart tests are part of the proposed evaluation. No gripper is recorded as installed, and no holding force or payload limit is claimed.
+See [energy-model explanation](energy-model.md).
 
-**Next evidence:** candidate comparison with measured assembled mass, representative retention tests, support sensing, and release confirmation.
+## ADR-007 — Encode package data in a QR label
 
-## ADR-006 — Fit a baseline energy model before adding ML
+**Current direction confirmed 28 October 2026.**
 
-**Decision:** proposed in the delivery scope.
+Mohammed A and Ahmad's QR software encodes package identity, mass, dimensions and an approved destination ID. The Jetson reads the label and validates the record before route evaluation. Physical measurements and current aircraft/battery state remain separate checks.
 
-Begin with a lookup or simple regression model, then evaluate additional complexity against held-out measurements. Include loaded outbound, placement, return, uncertainty, and reserve in the mission decision.
-
-**Consequence:** first establish valid current/voltage measurements and comparable test missions. Lower mean prediction error alone is insufficient if worst-case underprediction becomes worse.
+The first version uses one versioned QR format; additional barcode formats can follow a demonstrated need. See [package workflow](package-workflow.md).

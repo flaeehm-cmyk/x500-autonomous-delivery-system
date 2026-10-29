@@ -1,33 +1,19 @@
-# Case study: measurement and companion-computer integration
+# Power and compute case study
 
-**Engineering question:** How can the project add onboard computing while maintaining a known flight-power arrangement and trustworthy energy data?
+The established flight-power path is battery → PM02 V3 → original X500 PDB → ESCs, with the Pixhawk supplied by the PM02.
 
-## Established power path
+## Reported progress
 
-The recorded wiring is battery → Holybro PM02 V3 → original X500 PDB → ESCs. The Pixhawk is powered by the PM02. Two spare XT30 peripheral connections were identified on the PDB.
+- On 19 October, Mohammed F adjusted the voltage measurement from 16.405 V in Mission Planner versus 16.68 V on a meter to 16.68 V on both. This is single-point agreement; current calibration and usable energy remain open.
+- Jetson Orin Nano Super / Samsung 1 TB NVMe setup and three successful subsequent boots were reported.
+- A temporary custom Jetson supply is in development. Jad's complete power PCB is intended to replace that supply, the PM02 and the original PDB after qualification.
 
-The planned Jetson branch uses appropriate branch protection and a regulator qualified for the actual input range and complete load. Pololu and DROK options were discussed; this snapshot does not record a selected, installed, or flight-qualified regulator.
+## Next measurements
 
-## Voltage comparison
+Record the temporary supply's actual schematic, input/output rails, protection and complete installed load. Measure startup/load-step behavior, temperature and resets with the Jetson, SSD, cooling and selected camera.
 
-On 19 October, the project lead reported 16.405 V in Mission Planner versus 16.68 V on the multimeter before further adjustment. The reported subsequent comparison was 16.68 V on both.
+Validate the battery sensing boundary so the [energy model](../energy-model.md) includes all loads. Track the physical battery across reconnects; a reset consumption counter is not a newly charged pack.
 
-This supports single-point agreement to the reported display resolution. It does not establish meter accuracy, agreement throughout discharge, current calibration, or true battery capacity. ArduPilot documents voltage and current calibration as related but distinct measurements. [Calibration reference](https://ardupilot.org/copter/docs/common-power-module-configuration-in-mission-planner.html)
+Publish the actual Jetson software versions and console results, then verify the MAVLink interface before airborne integration.
 
-The lead also reported reusing a pack after disconnecting and reconnecting it during the 19 October session. A restarted consumption counter must not be treated as a recharged battery.
-
-## Jetson and SSD bring-up
-
-The Orin Nano Super was selected and bench setup with a Samsung 1 TB NVMe drive was reported. The project lead reported three successful subsequent boots. This is useful bring-up evidence; it is not a quantified reliability result.
-
-The exact JetPack / Jetson Linux version, SMART reports, storage-test command/output, and boot-test conditions should be captured as text in a future evidence update. The repository does not turn earlier software-version recommendations into an installed-version claim.
-
-NVIDIA documents the developer kit's supported storage and interfaces, including NVMe and DisplayPort. Those hardware capabilities do not establish that a particular airborne installation has been tested. [Hardware reference](https://docs.nvidia.com/jetson/orin-nano-devkit/user-guide/latest/hardware_layout.html)
-
-## Next experiment
-
-On the bench, record the complete installed load: Jetson board, SSD, cooling, selected camera, regulator, connectors, and wiring. Measure startup and steady/load-step rail behavior, input current, regulator temperature, and reset events. Record instrument, configuration, ambient conditions, and duration.
-
-After electrical qualification, verify the MAVLink connection and stale-data/link-loss behavior with the actual flight controller. Only then evaluate the fully assembled aircraft's mass, balance, vibration, and energy consumption.
-
-**Current result:** voltage comparison and computer bring-up have reported progress. Current sensing, the aircraft supply branch, and airborne companion-computer operation remain open.
+[Hardware ownership](../../hardware/README.md) · [Power architecture](../architecture.md) · [Evidence](../evidence.md) · [ArduPilot calibration reference](https://ardupilot.org/copter/docs/common-power-module-configuration-in-mission-planner.html)
