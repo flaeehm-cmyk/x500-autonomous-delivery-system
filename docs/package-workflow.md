@@ -1,6 +1,6 @@
 # Package label and delivery workflow
 
-**Status: proposed integration specification.** Mohammed A owns label generation and package-data software; Ahmad owns Jetson perception/runtime and is the proposed lead for autonomy integration.
+**Status: proposed integration specification.** Mohammed A and Ahmad jointly own the QR-code software: label generation, decoding, package-data format and validation. Ahmad also covers Jetson perception/runtime and is the proposed lead for autonomy integration.
 
 ## Start with one QR format
 
@@ -20,7 +20,7 @@ The label carries entered information; it does not measure the box or prove that
 
 ## Separate the steps
 
-1. **Generate and read:** Mohammed A produces labels and valid/invalid examples; Ahmad acquires camera images and decodes the label on the Jetson.
+1. **Generate and read:** Mohammed A and Ahmad develop generation, decoding and valid/invalid examples together; Ahmad also integrates the Jetson camera pipeline.
 2. **Validate:** check version, units, required fields, numeric bounds and destination. Cross-check physical measurements and reject an incompatible package before planning.
 3. **Evaluate routes:** enumerate approved candidate routes and estimate each one's full mission energy using Mohammed F and Jad's model. Select the feasible candidate with the lowest predicted energy; report ties, constraints and the fallback if none qualifies.
 4. **Approve and execute:** show the operator the package, route, energy/reserve estimate and reasons. Only an approved mission proceeds to verified upload and execution.

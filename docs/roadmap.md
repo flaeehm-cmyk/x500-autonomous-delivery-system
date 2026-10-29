@@ -9,7 +9,7 @@ Current responsibilities are in [team ownership](team.md). Subsystem development
 | 1 | Aircraft and measurement baseline | Mohammed F + Jad; Yazan assists with mechanical/configuration work | Current firmware/parameter export, installed mass, voltage/current checks and reviewed baseline flight record are linked |
 | 1 | Power architecture and PCB requirements | Jad | Temporary supply and future PCB have separate power trees, rail/load budgets, sensing coverage and bench-test plans |
 | 1 | Payload and mounting design | Yazan | CAD, mass/center-of-gravity estimate and a retention/release test plan support the chosen prototype |
-| 2 | Package QR specification and generator | Mohammed A | Valid labels and defined rejection cases can be generated and parsed reproducibly |
+| 2 | Package QR specification and generator | Mohammed A + Ahmad | Valid labels and defined rejection cases can be generated and parsed reproducibly |
 | 2 | Jetson camera and mission-interface demo | Ahmad; companion-integration role proposed | Recorded software environment, camera decoding demo and simulated mission/telemetry interface work together |
 | 2 | Baseline energy estimator | Mohammed F + Jad | Calibrated dataset, reproducible predictions and errors on held-out flights are published |
 

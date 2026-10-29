@@ -50,4 +50,4 @@ Report absolute error, percentage error where meaningful, worst underprediction 
 
 The existing historical CSV lacks current/energy time series and payload mass. It cannot train or validate this model. ML is an option after a useful measured baseline exists.
 
-**In one sentence:** Mohammed F and Jad build and validate the energy estimate; Ahmad integrates it into Jetson route decisions; Mohammed A supplies the package record.
+**In one sentence:** Mohammed F and Jad build and validate the energy estimate; Ahmad integrates it into Jetson route decisions; Mohammed A and Ahmad jointly develop the QR intake that supplies the package record.

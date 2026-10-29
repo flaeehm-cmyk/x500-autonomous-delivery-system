@@ -50,6 +50,6 @@ See [energy-model explanation](energy-model.md).
 
 **Current direction confirmed 28 October 2026.**
 
-Mohammed A's generator encodes package identity, mass, dimensions and an approved destination ID. The Jetson reads the label and validates the record before route evaluation. Physical measurements and current aircraft/battery state remain separate checks.
+Mohammed A and Ahmad's QR software encodes package identity, mass, dimensions and an approved destination ID. The Jetson reads the label and validates the record before route evaluation. Physical measurements and current aircraft/battery state remain separate checks.
 
 The first version uses one versioned QR format; additional barcode formats can follow a demonstrated need. See [package workflow](package-workflow.md).
