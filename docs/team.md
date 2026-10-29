@@ -6,12 +6,12 @@ Assignments confirmed by Mohammed F on **28 October 2026**. Proposed additions a
 
 | Member | Ownership | Next concrete deliverable |
 | --- | --- | --- |
-| **Mohammed F** — ECE, SLU | Overall system integration, requirements, flight validation, administrative work and coordination; **energy model with Jad** | Current aircraft configuration and mass record; calibrated energy-data collection plan with Jad |
-| **Jad** — ECE, SLU | **Complete power-distribution PCB**, intended to replace the PM02 power module, original PDB and temporary custom Jetson supply; **energy model with Mohammed F** | Power-tree and rail/load requirements, sensing plan, schematic and staged bench-test plan |
-| **Yazan** — ME, SLU | All mechanical work: payload mechanism, custom parts, fabrication, mounting and structural improvements; assists with flight-controller settings and physical constraints | Payload/mount CAD, measured mass and center of gravity, retention and release test plan |
-| **Ahmad** — CompE, WashU | QR-code software with Mohammed A; Jetson setup and computing, computer vision, machine learning and reinforcement-learning exploration | Reproducible Jetson environment and camera pipeline; proposed companion-integration scope below |
-| **Mohammed A** — CS, SLU | QR-code software with Ahmad: label generation, package-data format and intake; integration with the Jetson workflow | Versioned label specification, generator and validation examples |
-| **Alend** — CompE, SLU | **Not assigned yet** | Suggested starter contribution below, subject to team agreement |
+| **Mohammed Flaeeh (Mohammed F)** — ECE, SLU | Overall system integration, requirements, flight validation, administrative work and coordination; **energy model with Jad** | Current aircraft configuration and mass record; calibrated energy-data collection plan with Jad |
+| **Jad Khdeer** — ECE, SLU | **Complete power-distribution PCB**, intended to replace the PM02 power module, original PDB and temporary custom Jetson supply; **energy model with Mohammed F** | Power-tree and rail/load requirements, sensing plan, schematic and staged bench-test plan |
+| **Yazan Ramadan** — ME, SLU | All mechanical work: payload mechanism, custom parts, fabrication, mounting and structural improvements; assists with flight-controller settings and physical constraints | Payload/mount CAD, measured mass and center of gravity, retention and release test plan |
+| **Ahmad Hamzeh** — CompE, WashU | QR-code software with Mohammed A; Jetson setup and computing, computer vision, machine learning and reinforcement-learning exploration | Reproducible Jetson environment and camera pipeline; proposed companion-integration scope below |
+| **Rizan Mohammed Althaf (Mohammed A)** — CS, SLU | QR-code software with Ahmad: label generation, package-data format and intake; integration with the Jetson workflow | Versioned label specification, generator and validation examples |
+| **Alend Barwary** — CompE, SLU | **Not assigned yet** | Suggested starter contribution below, subject to team agreement |
 
 Ownership identifies responsibility, not completion. Finished work should link to code, CAD, measurements or test records under its actual contributors.
 
