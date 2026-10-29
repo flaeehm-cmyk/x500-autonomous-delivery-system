@@ -1,34 +1,34 @@
-# Hardware inventory and integration status
+# Hardware
 
-This is a documented inventory, not a fully measured mass/power bill of materials. Exact assembly mass, connector limits, and power consumption must be captured on the installed hardware.
+## Current platform
 
-| Subsystem | Documented hardware / choice | Status |
+| Assembly | Hardware | Status |
 | --- | --- | --- |
-| Primary airframe | Holybro X500 V2 ARF | Built and flown |
-| Flight controller | Pixhawk 6C Mini, Model A in the log review | Installed |
-| Navigation | M9N GPS | Documented installed |
-| RC link | RadioMaster RP3 receiver / RadioMaster control link | Documented installed; configuration-specific failsafe verification open |
-| Main power measurement / FC supply | Holybro PM02 V3 | Installed; single-point voltage agreement reported |
-| Propulsion distribution | Original X500 ARF PDB and stock propulsion system | Installed; two spare XT30 peripheral connections identified |
-| Flight battery | Tattu 4S 5200 mAh, 14.8 V nominal, 35C | Documented test pack; usable energy is not established by its label |
-| Companion computer | NVIDIA Jetson Orin Nano Super Developer Kit | Bench setup reported |
-| Storage | Samsung 990-family 1 TB NVMe | Installed in reported Jetson bench setup; retain exact model from device report in next update |
-| Auxiliary regulator / branch protection | Candidate evaluation in progress | Not recorded as installed or qualified |
-| Camera | USB/CSI options under evaluation | No final selection recorded |
-| Payload mechanism and sensing | Electromagnet concept; EPM/latch comparison in scope | Planned |
-| Weighing / dispatch station | Load-cell station concept | Planned |
-| Custom power board | Jad's assigned design workstream | In development; no schematic/PCB artifact included |
+| Airframe and propulsion | Holybro X500 V2 ARF with original PDB and propulsion system | Built and flown |
+| Flight controller | Pixhawk 6C Mini; M9N GPS; RadioMaster control link | Installed |
+| Flight power | Holybro PM02 V3; Tattu 4S 5200 mAh battery | Installed; current calibration remains open |
+| Companion computer | NVIDIA Jetson Orin Nano Super; Samsung 1 TB NVMe | Bench setup reported |
+| Jetson supply | Temporary custom power solution | In development; qualification record pending |
+| Camera | Selection under evaluation | No final installation recorded |
+| Payload mechanism | Magnetic and mechanical options under evaluation | Design work; no qualified payload limit |
+| Integrated power PCB | Jad's replacement for PM02, PDB and temporary Jetson supply | In development; design files not yet included |
 
-The nominal pack-label product is 14.8 V × 5.2 Ah = 76.96 Wh. It is a nominal rating, not measured usable energy and not a mission budget.
+The battery's nominal rating is **14.8 V × 5.2 Ah = 76.96 Wh**. Usable energy must be measured for the actual pack and operating conditions.
 
-## Integration records to add
+## Power PCB — Jad
 
-Use versioned schematics and CAD exports, with units, revision, author, component designators, and connector labels. Record total installed mass and input power, including mounting, wiring, cooling, regulator losses, and payload interface.
+The intended board combines propulsion distribution, regulated flight-controller and companion/peripheral supplies, battery voltage/current sensing and appropriate branch protection. Confirm rail voltages, peak/continuous loads, connector limits, grounding and sensor coverage before layout.
 
-Document the exact regulator before selecting protection, wiring, or connectors. Do not transplant earlier proposed part values into an approved design.
+Publish the schematic and native PCB files with readable PDF exports, BOM, board revision and bench measurements. Qualify the sensing and each supply before replacing the established flight-power path. The temporary Jetson supply remains a separate documented assembly until then.
 
-## Historical Mark4 platform
+## Mechanical system — Yazan
 
-Project notes describe a Mark4 7-inch frame, EMAX ECO II 2807 1300 KV motors, HGLRC 60 A four-in-one ESC, Pixhawk 6C Mini, M9N GPS, and RadioMaster RP3 integration. This is historical inventory; the current repair/flight condition is not established. The July HGLRC stack reference screenshots are not a substitute for its final as-built wiring.
+Owns payload retention/release, custom mounts and parts, fabrication, structural changes, mass and center of gravity. Coordinates physical constraints and relevant flight-controller settings with Mohammed F.
 
-See [architecture](../docs/architecture.md), [decision record](../docs/decisions.md), and [power case study](../docs/case-studies/power-and-compute.md).
+Publish native CAD and reviewable exports, assembly drawings, measured mass, material/fastener information and retention/release evidence. No EPM, electromagnet or latch is selected as a qualified flight mechanism yet.
+
+## File placement
+
+As the first artifacts arrive, use `hardware/power/` for PCB work and `hardware/mechanical/` for CAD and fabrication. Keep each assembly's source, BOM, exports and test notes together. These paths are conventions, not claims that design files already exist.
+
+[Power architecture](../docs/architecture.md) · [Power case study](../docs/case-studies/power-and-compute.md) · [Earlier Mark4 work](../docs/engineering-log.md)
