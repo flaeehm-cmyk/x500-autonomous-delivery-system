@@ -87,11 +87,11 @@ The workstreams below follow the project scope, with assignments updated on 28 O
 | Member | Workstream |
 | --- | --- |
 | Mohammed Flaeeh (Mohammed F) | Project lead; systems integration, flight validation, and energy modeling (with Jad) |
-| Jad | Power electronics, custom power-module PCB, and energy modeling (with Mohammed F) |
-| Ahmad | Package QR/barcode labels, Jetson camera label reading, and destination flight-path planning (with Mohammed A) |
-| Alend | Weighing / dispatch station and instrumentation |
-| Yazan | Payload fixture, attachment interface, and structural testing |
-| Mohammed A | Package QR/barcode labels and destination flight-path planning (with Ahmad); mission state machine, operator interface, and event logging |
+| Jad Khdeer | Power electronics, custom power-module PCB, and energy modeling (with Mohammed F) |
+| Ahmad Hamzeh | Package QR/barcode labels, Jetson camera label reading, and destination flight-path planning (with Mohammed A) |
+| Alend Barwary | Weighing / dispatch station and instrumentation |
+| Yazan Ramadan | Payload fixture, attachment interface, and structural testing |
+| Rizan Mohammed Althaff (Mohammed A) | Package QR/barcode labels and destination flight-path planning (with Ahmad); mission state machine, operator interface, and event logging |
 
 ## Repository guide
 
