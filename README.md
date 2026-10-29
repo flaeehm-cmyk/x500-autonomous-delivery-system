@@ -30,8 +30,8 @@ The Pixhawk runs flight control and uploaded missions. The Jetson is intended to
 | **Mohammed Flaeeh (Mohammed F)** | Project lead; systems integration, coordination, flight validation; energy model with Jad |
 | **Jad** | Complete power-distribution PCB; energy model with Mohammed F |
 | **Yazan** | Mechanical design, fabrication, payload and structural work; support for flight-controller configuration |
-| **Ahmad** | Jetson computing, computer vision and ML; proposed lead for companion autonomy integration |
-| **Mohammed A** | QR-label generation, package-data format and intake software |
+| **Ahmad** | QR-code software with Mohammed A; Jetson computing, computer vision and ML |
+| **Mohammed A** | QR-code software with Ahmad: label generation, package-data format and intake |
 | **Alend** | Assignment pending |
 
 See [team ownership and deliverables](docs/team.md).
