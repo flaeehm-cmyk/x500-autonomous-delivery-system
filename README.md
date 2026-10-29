@@ -1,109 +1,58 @@
-<p align="center"><img src="assets/project-banner.svg" alt="X500 autonomous parcel delivery — flight baseline reviewed, companion computer bench bring-up reported, payload integration planned" width="100%"></p>
-
 # X500 Autonomous Parcel Delivery
 
-**An independent student UAV project combining flight control, power electronics, embedded computing, and experimental validation.**
+An independent six-person student project developing a supervised parcel-delivery system on the **Holybro X500 V2**, with **Pixhawk / ArduPilot** flight control and **NVIDIA Jetson Orin Nano Super** onboard computing.
 
-A six-member engineering and computer science team led by **Mohammed Flaeeh (Mohammed F)**, an Electrical and Computer Engineering student at Saint Louis University.
+The intended workflow is to read a package's QR label, validate its mass, dimensions and destination, estimate the energy needed for delivery and return, then execute an operator-approved mission.
 
-We are developing a supervised autonomous delivery prototype that identifies a parcel, measures its mass, evaluates mission energy and reserve, and verifies controlled placement. The current foundation is an X500 flying programmed waypoint missions. Payload handling and energy-aware delivery are the next integration stages.
+**Current stage:** waypoint flight is documented; the integrated delivery system is in development.
 
-**Status: active development · Updated 28 October 2026**
+## Progress
 
-[Engineering results](docs/case-studies/flight-validation.md) · [System architecture](docs/architecture.md) · [Hardware](hardware/README.md) · [Roadmap](docs/roadmap.md) · [Team](docs/team.md)
-
-## What works today
-
-| Capability | Evidence and current status |
+| Area | Current result |
 | --- | --- |
-| X500 AUTO waypoint flight | Documented in the 10 October log review, covering 7 and 9 October flights. The included summary contains **30 armed intervals and 16 intervals with inferred airborne time** across four source logs. |
-| Battery voltage adjustment | Project lead reported **16.68 V in Mission Planner and 16.68 V on the multimeter** after adjustment on 19 October. This is one comparison point; current calibration remains open. |
-| Jetson / NVMe bring-up | Orin Nano Super and Samsung 1 TB NVMe setup, with **three successful subsequent boots reported**. Aircraft power and MAVLink integration remain to be qualified. |
-| Reproducible repository analysis | A dependency-free Python tool regenerates the included flight-summary report. It analyzes the supplied summary CSV; it does not control the aircraft or decode raw flight logs. |
+| Flight | AUTO waypoint sequences documented in the October flight review. [Flight case study](docs/case-studies/flight-validation.md) |
+| Analysis | Python utility and 10 tests reproduce a summary of 30 armed intervals from four logs. [Results](analysis/results.md) |
+| Onboard computing | Jetson / NVMe bench setup and three successful subsequent boots reported. Aircraft integration remains open. |
+| Delivery | Package-label software, energy prediction, custom power PCB and payload hardware are development work. |
 
-Read the [evidence register](docs/evidence.md) for source dates, confidence levels, and limitations. The complete delivery workflow has **not yet been demonstrated**.
+The [evidence register](docs/evidence.md) distinguishes included artifacts from team-reported progress. No integrated parcel-delivery demonstration is claimed yet.
 
-## Engineering work to explore
+## System
 
-- **Flight validation and fault investigation.** Separate armed time from inferred flight, identify AUTO evidence, and investigate vibration and mission-end behavior. [Case study →](docs/case-studies/flight-validation.md)
-- **Power and measurement.** Preserve the flight-controller supply, qualify a separate companion-computer branch, and distinguish voltage agreement from energy calibration. [Case study →](docs/case-studies/power-and-compute.md)
-- **Design decisions.** Move from the Mark4 development platform to the X500, select the Jetson, and reduce the first delivery demonstration to a testable scope. [Decision record →](docs/decisions.md)
+The Pixhawk runs flight control and uploaded missions. The Jetson is intended to handle camera input, package validation and mission planning. A laptop provides operator review.
 
-The next technical contribution is an **explainable mission-feasibility decision**: predicted energy, return reserve, and a clear reason to accept or reject a parcel mission. A second contribution is **verified payload handling**, where a release command and physical separation are separate events. Both are development goals.
+[Architecture](docs/architecture.md) · [Package workflow](docs/package-workflow.md) · [Energy model](docs/energy-model.md)
 
-## System at a glance
+## Team
 
-The Pixhawk runs flight control and configured flight failsafes. The Jetson is intended to handle perception and mission decisions; the laptop provides operator approval and review.
+| Member | Responsibility |
+| --- | --- |
+| **Mohammed Flaeeh (Mohammed F)** | Project lead; systems integration, coordination, flight validation; energy model with Jad |
+| **Jad** | Complete power-distribution PCB; energy model with Mohammed F |
+| **Yazan** | Mechanical design, fabrication, payload and structural work; support for flight-controller configuration |
+| **Ahmad** | Jetson computing, computer vision and ML; proposed lead for companion autonomy integration |
+| **Mohammed A** | QR-label generation, package-data format and intake software |
+| **Alend** | Assignment pending |
 
-```mermaid
-flowchart TD
-    G["Ground station: Mission Planner"] --> F["Pixhawk 6C Mini: ArduCopter"]
-    F --> A["X500 motors and ESCs"]
-    C["Camera and parcel intake: planned"] -.-> J["Jetson Orin Nano Super: bench bring-up"]
-    J -. "MAVLink integration planned" .-> F
-    J -.-> P["Payload interface: planned"]
-```
+See [team ownership and deliverables](docs/team.md).
 
-Solid connections describe the established flight system. Dotted connections describe intended integrations. See the [power tree and interface boundaries](docs/architecture.md).
+## Explore the work
 
-## Reproduce the included analysis
+- [Hardware](hardware/README.md) and [software](software/README.md): subsystem boundaries and current artifacts.
+- [Roadmap](docs/roadmap.md): next deliverables and who owns them.
+- [Project history](docs/engineering-log.md): Mark4 development, the move to X500 and the change from tracking to delivery.
+- [Design decisions](docs/decisions.md): the constraints behind those choices.
 
-Requires Python 3.10 or newer; no extra packages or aircraft connection.
+## Run the analysis
 
-From the repository root:
+Python 3.10+; standard library only. From the repository root:
 
 ```bash
 python analysis/summarize_segments.py
 python -m unittest discover -s tests -v
-```
-
-The first command prints a report. To regenerate the checked-in outputs:
-
-```bash
-python analysis/summarize_segments.py --write
 python analysis/summarize_segments.py --check
 ```
 
-On Windows, use `py -3` in place of `python` if needed.
+On Windows, use `py -3` if needed. The tool analyzes the included summary CSV. Its airborne-time totals are not battery endurance; the dataset does not contain the current measurements needed for energy modeling.
 
-[View the generated report](analysis/results.md) · [Inspect the CSV](data/flight_segment_summary_2026-10-10.csv) · [Data dictionary](data/README.md)
-
-The original extraction used relative altitude above 2 m as its airborne heuristic. Summed airborne time is **not battery endurance**. Mode lists alone do not prove mission completion, and this dataset cannot establish energy use.
-
-## Next milestones
-
-1. Close the unloaded-flight baseline: current calibration, vibration review, and configuration-specific failsafe evidence.
-2. Qualify the Jetson power branch and MAVLink link on the bench.
-3. Demonstrate scan → weigh → validate → propose → approve with simulated aircraft interfaces.
-4. Validate payload retention and supported release.
-5. Progress through simulation, secured inert-load flight tests, and an integrated delivery demonstration.
-
-[Roadmap and acceptance evidence](docs/roadmap.md) · [Validation plan](docs/validation-plan.md)
-
-## Team
-
-The workstreams below follow the project scope, with assignments updated on 28 October 2026. See [team roles and affiliations](docs/team.md) for details and documented contributions.
-
-| Member | Workstream |
-| --- | --- |
-| Mohammed Flaeeh (Mohammed F) | Project lead; systems integration, flight validation, and energy modeling (with Jad) |
-| Jad | Power electronics, custom power-module PCB, and energy modeling (with Mohammed F) |
-| Ahmad | Package QR/barcode labels, Jetson camera label reading, and destination flight-path planning (with Mohammed A) |
-| Alend | Weighing / dispatch station and instrumentation |
-| Yazan | Payload fixture, attachment interface, and structural testing |
-| Mohammed A | Package QR/barcode labels and destination flight-path planning (with Ahmad); mission state machine, operator interface, and event logging |
-
-## Repository guide
-
-| Area | Contents |
-| --- | --- |
-| [`docs/`](docs/README.md) | Architecture, case studies, decisions, history, evidence, and development plan |
-| [`hardware/`](hardware/README.md) | Documented hardware inventory and power-integration requirements |
-| [`software/`](software/README.md) | Current analysis tooling and proposed software responsibilities |
-| [`data/`](data/README.md) | Historical flight-summary CSV and provenance |
-| [`analysis/`](analysis/results.md) | Reproducible summary script and generated outputs |
-| [`tests/`](tests/test_summarize_segments.py) | Input validation and analysis regression tests |
-
-This repository documents team engineering work and its limitations. ArduPilot, Mission Planner, and NVIDIA software are third-party platforms; see [attribution](ATTRIBUTION.md). Documentation and the offline summary tool were assembled with AI assistance from the project records.
-
-For team workflow, see [CONTRIBUTING.md](CONTRIBUTING.md). New to GitHub? Start with the [owner's guide](docs/github-guide.md).
+[Data and method](data/README.md) · [Team workflow](CONTRIBUTING.md) · [GitHub guide](docs/github-guide.md) · [Attribution](ATTRIBUTION.md)

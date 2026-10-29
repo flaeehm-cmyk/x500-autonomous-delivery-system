@@ -1,40 +1,38 @@
-# Team contribution workflow
+# Team workflow
 
-Make each update a small, reviewable piece of engineering work.
+1. Open a small issue: subsystem, owner, desired result, dependencies and completion evidence.
+2. Create a working branch, such as `power/rail-budget` or `docs/payload-interface`.
+3. Add the artifact and a short explanation of the change, result and limits.
+4. Run relevant checks; open a pull request and include the issue link and subsystem reviewer.
+5. Merge after one approving [code-owner review](.github/CODEOWNERS), a passing `summary` check and resolved review conversations. New reviewable commits dismiss old approvals.
 
-1. Open an issue describing the problem, owner, dependency, and evidence needed to finish.
-2. Create a branch with a descriptive name, such as `docs/power-budget` or `analysis/current-calibration`.
-3. Add the actual artifact and its explanation: what changed, why, configuration, result, and limits.
-4. Run the relevant check. For the included Python utility: `python -m unittest discover -s tests -v`.
-5. Open a pull request into `main` using the supplied template. GitHub requests reviewers from [CODEOWNERS](.github/CODEOWNERS); include the relevant subsystem contributor in the review.
-6. Merge after at least one approving code-owner review, a passing `summary` check, and resolution of review conversations. Update status only when the linked evidence supports it.
+These rules apply to administrators too. Use your own account and credit collaborators. Organization owners manage access; Write access is sufficient for working branches.
 
-Use your own GitHub account for your work. Credit collaborators in the relevant document or pull request.
+## Local workflow
 
-## Repository access and branches
-
-The repository belongs to the [x500-delivery organization](https://github.com/x500-delivery). Use your own account with repository Write access (or a higher role) to push a working branch. Organization owners manage membership and repository settings.
-
-Start from an up-to-date `main` and use a separate branch for each change:
+From an existing clone:
 
 ```bash
 git switch main
 git pull --ff-only
 git switch -c docs/describe-your-change
-# Edit, review, and commit the intended files.
+# Edit and commit the intended files.
 git push -u origin docs/describe-your-change
 ```
 
-Open a pull request from that branch into `main`. Changes to `main` follow the review and check requirements above, including changes made by administrators. The `summary` check validates the offline analysis utility and its reproducible reports; it does not validate aircraft hardware or flight behavior.
+Open a pull request into `main`. For changes to the included analysis, run:
 
-## Results and records
+```bash
+python -m unittest discover -s tests -v
+python analysis/summarize_segments.py --check
+```
 
-Use the [test record template](docs/templates/test-record.md). Separate bench, simulation, and flight results. Mark synthetic examples clearly. Keep an unsuccessful test and its follow-up instead of replacing it with a successful result.
+The `summary` check covers the offline utility and report consistency, not aircraft behavior.
 
-For configuration changes, include the version actually used and the reason for the change. Proposed parameter values are not approved flight configurations.
+## Keep records useful
 
-## Public materials
+Use the [test record template](docs/templates/test-record.md) for measured results. Identify configuration, units, method, author and evidence. Separate bench, simulation and flight results; mark synthetic data and preserve failed tests.
 
-Publish reviewed exports and appropriately sized media. Keep raw private flight logs, credentials, local environment files, and unreviewed media outside the tracked tree. The ignore rules are a convenience; inspect changes before committing.
+Keep one authoritative source per topic: ownership in [team](docs/team.md), interfaces in [architecture](docs/architecture.md), active work in Issues, significant choices in [decisions](docs/decisions.md). Update linked summaries in the same PR when those facts change.
 
-A root README update should help a new reader understand the current project. Detailed session notes belong in the engineering log or a case study. Do not backdate commits to recreate work that happened before the repository existed.
+Review exports for private locations, credentials and third-party content before publishing. Keep long session notes and raw private logs out of the README. For folder conventions and the weekly routine, see the [GitHub guide](docs/github-guide.md).
