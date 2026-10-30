@@ -1,5 +1,7 @@
 # X500 Autonomous Parcel Delivery
-<img width="1119" height="1115" alt="IMG_5987" src="https://github.com/user-attachments/assets/350df2ba-c522-431d-8c0f-3ea1cac23fbe" />
+
+<img width="480" alt="Holybro X500 V2 Autonomous Delivery Development Platform" src="https://github.com/user-attachments/assets/350df2ba-c522-431d-8c0f-3ea1cac23fbe" />
+
 An independent six-person student project developing a supervised parcel-delivery system on the **Holybro X500 V2**, with **Pixhawk / ArduPilot** flight control and **NVIDIA Jetson Orin Nano Super** onboard computing.
 
 The intended workflow is to read a package's QR label, validate its mass, dimensions and destination, estimate the energy needed for delivery and return, then execute an operator-approved mission.

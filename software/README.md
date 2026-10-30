@@ -6,13 +6,15 @@
 
 ## Delivery software under development
 
-| Component | Owner / proposed lead | Responsibility |
+| Component | Owner | Responsibility |
 | --- | --- | --- |
 | QR-code software and package intake | Mohammed A + Ahmad | Generate/read QR labels, define versioned package records and validate decoded data |
 | Jetson perception and runtime | Ahmad | Camera acquisition, label decoding and reproducible onboard software environment |
-| Companion autonomy integration | Ahmad, proposed | Integrate route evaluation, mission state handling and the Pixhawk interface |
+| Jetson–Pixhawk communication and mission integration | Alend, with Mohammed A + Ahmad | Generate flight paths from validated package data, integrate route/energy evaluation, upload missions and monitor execution |
 | Energy estimator | Mohammed F + Jad | Predict mission Wh and uncertainty from calibrated measurements |
 | System integration | Mohammed F | Agree interfaces, aircraft constraints and end-to-end tests with subsystem owners |
+
+Mohammed A and Ahmad provide the validated package-data pipeline; Ahmad maintains the Jetson camera/runtime environment. Alend connects that pipeline to mission planning and the Pixhawk interface, using the energy estimator developed by Mohammed F and Jad.
 
 The label describes a delivery request. The validator, energy estimator, route evaluator and operator must all accept it before execution. See [package workflow](../docs/package-workflow.md) and [energy model](../docs/energy-model.md).
 
