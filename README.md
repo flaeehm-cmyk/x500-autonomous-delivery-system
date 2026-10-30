@@ -1,5 +1,5 @@
 # X500 Autonomous Parcel Delivery
-
+<img width="1119" height="1115" alt="IMG_5987" src="https://github.com/user-attachments/assets/350df2ba-c522-431d-8c0f-3ea1cac23fbe" />
 An independent six-person student project developing a supervised parcel-delivery system on the **Holybro X500 V2**, with **Pixhawk / ArduPilot** flight control and **NVIDIA Jetson Orin Nano Super** onboard computing.
 
 The intended workflow is to read a package's QR label, validate its mass, dimensions and destination, estimate the energy needed for delivery and return, then execute an operator-approved mission.
@@ -32,7 +32,7 @@ The Pixhawk runs flight control and uploaded missions. The Jetson is intended to
 | **Yazan Ramadan** | Mechanical design, fabrication, payload and structural work; support for flight-controller configuration |
 | **Ahmad Hamzeh** | QR-code software with Mohammed A; Jetson computing, computer vision and ML |
 | **Rizan Mohammed Althaf (Mohammed A)** | QR-code software with Ahmad: label generation, package-data format and intake |
-| **Alend Barwary** | Assignment pending |
+| **Alend Barwary** | Jetson–Pixhawk communication and mission integration: flight-path generation, mission upload and execution monitoring, working with Mohammed A and Ahmad |
 
 See [team ownership and deliverables](docs/team.md).
 
