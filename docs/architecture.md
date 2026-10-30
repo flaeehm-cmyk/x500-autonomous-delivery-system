@@ -1,13 +1,13 @@
 # System architecture
 
 ## Flight and companion computers
-
+<img width="1500" height="1400" alt="communication-wiring" src="https://github.com/user-attachments/assets/0b25d8c6-1f34-4708-9c2a-4059dc308a6b" />
 The flight platform is the Holybro X500 V2 with Pixhawk 6C Mini and ArduPilot. ArduCopter 4.7.1 is recorded in the October review; a current parameter export remains to be added.
 
 The Pixhawk executes flight control and uploaded missions. The Jetson Orin Nano Super is intended to run perception, package processing and mission planning, communicating with the Pixhawk through MAVLink. Mission Planner has been used for configuration and flight review. [ArduPilot companion-computer reference](https://ardupilot.org/dev/docs/companion-computers.html)
 
 ## Power
-
+<img width="1500" height="1250" alt="power-wiring" src="https://github.com/user-attachments/assets/b21e8c98-b457-49da-84f4-232505782267" />
 The established flight path is **battery → PM02 V3 → original X500 PDB → ESCs**, with the Pixhawk supplied by the PM02.
 
 A temporary custom Jetson power solution is being developed. Its final wiring, ratings and test results are not yet recorded here. Jad's PCB is intended to combine propulsion distribution, flight-controller supply, battery sensing and regulated companion/peripheral power, replacing the existing module, PDB and temporary supply after qualification.
