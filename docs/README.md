@@ -12,3 +12,4 @@
 | Important past choices | [Decisions](decisions.md) · [History](engineering-log.md) |
 | Sources and limitations | [Evidence register](evidence.md) |
 | Repository layout and upkeep | [GitHub guide](github-guide.md) · [Contribution workflow](../CONTRIBUTING.md) |
+| Learning Git and GitHub | [Git and GitHub tutorial](git-tutorial.md) |

@@ -35,4 +35,4 @@ Use the [test record template](docs/templates/test-record.md) for measured resul
 
 Keep one authoritative source per topic: ownership in [team](docs/team.md), interfaces in [architecture](docs/architecture.md), active work in Issues, significant choices in [decisions](docs/decisions.md). Update linked summaries in the same PR when those facts change.
 
-Review exports for private locations, credentials and third-party content before publishing. Keep long session notes and raw private logs out of the README. For folder conventions and the weekly routine, see the [GitHub guide](docs/github-guide.md).
+Review exports for private locations, credentials and third-party content before publishing. Keep long session notes and raw private logs out of the README. For folder conventions and the weekly routine, see the [GitHub guide](docs/github-guide.md). New to Git? Start with the [Git and GitHub tutorial](docs/git-tutorial.md).
